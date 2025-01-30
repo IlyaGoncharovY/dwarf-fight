@@ -1,0 +1,64 @@
+.arenaContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    height: 100vh;
+    background-image: url('../../assets/images/arena.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    .imgContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        /* width: 100%; */
+
+        .flipHorizontally {
+            transform: scaleX(-1);
+        }
+
+        .unitContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img {
+            width: 160px;
+            height: auto;
+            animation: float 2s ease-in-out infinite;
+        }
+
+    }
+
+
+    button {
+        color: #121111;
+        background: rgb(202 24 24 / 20%);
+        margin-top: 20px;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+
+        &:hover {
+            background: rgb(73 3 3 / 50%);
+        }
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
