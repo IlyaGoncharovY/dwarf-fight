@@ -1,0 +1,17 @@
+.transitionOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+}
+
+.active {
+    opacity: 1;
+    pointer-events: all;
+}
