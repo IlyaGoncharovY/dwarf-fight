@@ -1,0 +1,53 @@
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s ease-in-out;
+}
+
+.button:active {
+    transform: scale(0.9);
+}
+
+/* 🟥 Красная кнопка "Back" */
+.back {
+    color: #121111;
+    background: rgb(202 24 24 / 20%);
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.back:hover {
+    background: rgb(73 3 3 / 50%);
+}
+
+/* 🟩 Кнопка для арены */
+.arena {
+    color: white;
+    background: rgb(255 255 255 / 20%);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.arena:hover {
+    background: rgb(255 255 255 / 50%);
+}
+
+/* 🟦 Кнопка-иконка */
+.icon {
+    background: none;
+    padding: 5px;
+}
+
+.icon:active {
+    transform: scale(0.85);
+}
