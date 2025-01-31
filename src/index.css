@@ -32,6 +32,23 @@
 
   /* Анимация для движения юнита */
   --fade-in-animation: fade-in;
+
+  /* цвета */
+
+  /* текст */
+  --white-text-color: white;
+  --primary-color: #e8e817;
+  --secondary-color: #ecec8d;
+
+  /* бекграунд */
+  --background-color-black: rgb(0 0 0 / 70%);
+  --background-color-gray: rgb(255 255 255 / 10%);
+
+  /* бекграунд кнопки */
+  --background-color-dark-red: rgb(202 24 24 / 20%);
+  --background-color-dark-red-hover: rgb(73 3 3 / 50%);
+  --background-color-button-gray: rgb(255 255 255 / 20%);
+  --background-color-button-gray-hover: rgb(255 255 255 / 50%);
 }
 
 body {

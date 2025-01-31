@@ -18,8 +18,8 @@
 
 /* 🟥 Красная кнопка "Back" */
 .back {
-    color: #e8e817;
-    background: rgb(202 24 24 / 20%);
+    color: var(--primary-color);
+    background: var(--background-color-dark-red);
     margin-top: 20px;
     padding: 10px 20px;
     text-decoration: none;
@@ -29,13 +29,13 @@
 }
 
 .back:hover {
-    background: rgb(73 3 3 / 50%);
+    background: var(--background-color-dark-red-hover);
 }
 
 /* 🟩 Кнопка для арены */
 .arena {
-    color: white;
-    background: rgb(255 255 255 / 20%);
+    color: var(--white-text-color);
+    background: var(--background-color-button-gray);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -43,7 +43,7 @@
 }
 
 .arena:hover {
-    background: rgb(255 255 255 / 50%);
+    background: var(--background-color-button-gray-hover);
 }
 
 /* 🟦 Кнопка-иконка */

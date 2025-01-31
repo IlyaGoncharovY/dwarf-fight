@@ -2,7 +2,7 @@
     display: var(--flex-display);
     flex-direction: var(--flex-direction-by-height);
     align-items: var(--align-items-center);
-    color: #ecec8d;
+    color: var(--secondary-color);
 
     img {
         width: 160px;

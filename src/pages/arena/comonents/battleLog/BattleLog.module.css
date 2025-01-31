@@ -2,8 +2,8 @@
     width: 300px;
     max-height: 150px;
     min-height: 100px;
-    color: white;
-    background-color: rgb(0 0 0 / 70%);
+    color: var(--white-text-color);
+    background-color: var(--background-color-black);
     overflow-y: auto;
     border: 2px solid #333;
     padding: 10px;
@@ -15,7 +15,7 @@
     .hitMessage {
         margin: 5px 0;
         padding: 3px;
-        background-color: rgb(255 255 255 / 10%);
+        background-color: var(--background-color-gray);
         border-radius: 3px;
         text-align: center;
         font-weight: bold;

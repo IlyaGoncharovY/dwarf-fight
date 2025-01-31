@@ -4,5 +4,5 @@
      align-items: var(--align-items-center);
      gap: 10px;
      padding: 0 5px;
-     color: #ecec8d;
+     color: var(--secondary-color);
 }
