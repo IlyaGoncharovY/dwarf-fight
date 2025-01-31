@@ -1,7 +1,10 @@
 import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit';
 
+import fightSlice from '../pages/arena/reducer/fightSlice.ts';
+
 export const store = configureStore({
   reducer: {
+    arenaReducer: fightSlice,
   },
 });
 
