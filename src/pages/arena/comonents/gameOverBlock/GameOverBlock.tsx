@@ -1,7 +1,8 @@
 import {FC} from 'react';
 
+import {UIButton} from '../../../../components/common';
+
 import s from './GameOverBlock.module.css';
-import {UIButton} from "../../../../components/common";
 
 interface IGameOverBlock {
     userStateHP: number;
