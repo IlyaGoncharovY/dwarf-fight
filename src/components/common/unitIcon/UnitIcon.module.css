@@ -1,21 +1,11 @@
 .unitContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: var(--flex-display);
+    flex-direction: var(--flex-direction-by-height);
+    align-items: var(--align-items-center);
 
     img {
         width: 160px;
         height: auto;
-        animation: float 2s ease-in-out infinite;
-    }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-2px);
+        animation: var(--float-animation, float) 2s ease-in-out infinite;
     }
 }

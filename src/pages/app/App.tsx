@@ -4,7 +4,7 @@ import warriorImg from '../../assets/images/warrior.svg';
 import backgroundStartImg from '../../assets/images/backgroundStart.webp';
 
 import {useTelegram} from '../../common/hooks';
-import {PageWrapper, UnitIcon} from '../../components/common';
+import {PageWrapper, UIButton, UnitIcon} from '../../components/common';
 
 import s from './App.module.css';
 
@@ -30,9 +30,11 @@ export const App: FC<IApp> = ({
   return (
     <PageWrapper imgUrl={backgroundStartImg}>
       <UnitIcon imgUrl={warriorImg} alt={'Warrior'}/>
-      <button onClick={navigateButtonClickHandler} className={s.buttonGoToArena}>
+      <div className={s.buttonGoToArena}>
+        <UIButton variant={'arena'} onClick={navigateButtonClickHandler}>
                 go to arena
-      </button>
+        </UIButton>
+      </div>
     </PageWrapper>
   );
 };

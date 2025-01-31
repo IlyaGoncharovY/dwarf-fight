@@ -6,10 +6,53 @@
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* flex свойста */
+  --flex-display: flex;
+
+  /* flex центр */
+  --justify-content-center: center;
+  --align-items-center: center;
+
+  /* flex по ширине */
+  --justify-content-by-width: space-between;
+
+  /* flex по высоте */
+  --flex-direction-by-height: column;
+
+  /* Анимация для движения юнита */
+  --float-animation: float;
+
+  /* Анимация для движения юнита */
+  --fade-in-animation: fade-in;
 }
 
 body {
   width: 100vw;
   height: 100vh;
   margin: 0;
+}
+
+/* Анимация для движения юнита (вниз/вверх) */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Анимация для пермещения сообщения в .battleLog */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

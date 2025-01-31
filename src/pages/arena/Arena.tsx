@@ -6,7 +6,7 @@ import arenaBGImage from '../../assets/images/arena.webp';
 
 import {useAppDispatch, useAppSelector} from '../../store';
 
-import {MoveAndPunchBlockForArena, PageWrapper, UnitIcon} from '../../components/common';
+import {MoveAndPunchBlockForArena, PageWrapper, UIButton, UnitIcon} from '../../components/common';
 
 import {BattleLog, GameOverBlock} from './comonents';
 import {restartGame} from './reducer/fightSlice.ts';
@@ -64,7 +64,7 @@ export const Arena: FC<IArena> = ({
             <MoveAndPunchBlockForArena title={'Punch'} action={'Punch'}/>
           </>
         )}
-        <button onClick={navigateButtonClickHandler} className={s.buttonBack}>Back</button>
+        <UIButton variant={'back'} onClick={navigateButtonClickHandler}>Back</UIButton>
       </div>
     </PageWrapper>
   );

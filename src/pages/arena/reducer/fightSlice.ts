@@ -17,6 +17,8 @@ interface FightState {
   gameOver: boolean;
   userHitGoblin: boolean;
   goblinHitUser: boolean;
+  hasMoved: boolean;
+  hasAttacked: boolean;
 }
 
 const getRandomDirection = (): DirectionType => {
@@ -42,6 +44,8 @@ const initialState: FightState = {
   gameOver: false,
   userHitGoblin: false,
   goblinHitUser: false,
+  hasMoved: false,
+  hasAttacked: false,
 };
 
 const fightSlice = createSlice({
@@ -49,14 +53,19 @@ const fightSlice = createSlice({
   initialState,
   reducers: {
     userMove(state, action: PayloadAction<DirectionType>) {
+      if (state.gameOver || state.hasMoved) return;
+
       state.userState.move = action.payload;
+      state.hasMoved = true;
+
+      if (state.hasMoved && state.hasAttacked) {
+        fightSlice.caseReducers.nextTurn(state);
+      }
     },
     userPunch(state, action: PayloadAction<DirectionType>) {
-      if (state.gameOver) return;
+      if (state.gameOver || state.hasAttacked) return;
 
       state.userState.setDamage = action.payload;
-
-      // Сброс флажков попадания
       state.userHitGoblin = false;
       state.goblinHitUser = false;
 
@@ -74,7 +83,18 @@ const fightSlice = createSlice({
         state.goblinHitUser = true;
       }
 
-      // Увеличение счетчика ходов
+      state.hasAttacked = true;
+
+      // Если и перемещение, и атака уже сделаны → завершаем ход
+      if (state.hasMoved && state.hasAttacked) {
+        fightSlice.caseReducers.nextTurn(state);
+      }
+    },
+    nextTurn(state) {
+      if (!state.hasMoved || !state.hasAttacked || state.gameOver) return;
+
+      state.hasMoved = false;
+      state.hasAttacked = false;
       state.turnCount += 1;
 
       // Проверка окончания игры
@@ -89,6 +109,8 @@ const fightSlice = createSlice({
       state.gameOver = false;
       state.userHitGoblin = false;
       state.goblinHitUser = false;
+      state.hasMoved = false;
+      state.hasAttacked = false;
     },
   },
 });

@@ -1,7 +1,7 @@
 .blockArenaContainer {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
+     display: var(--flex-display);
+     justify-content: var(--justify-content-by-width);
+     align-items: var(--align-items-center);
      gap: 10px;
      padding: 0 5px;
 }
