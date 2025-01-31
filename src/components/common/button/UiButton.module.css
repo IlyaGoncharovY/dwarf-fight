@@ -1,4 +1,7 @@
 .button {
+    font-family: Triodion, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -15,13 +18,14 @@
 
 /* 🟥 Красная кнопка "Back" */
 .back {
-    color: #121111;
+    color: #e8e817;
     background: rgb(202 24 24 / 20%);
     margin-top: 20px;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     transition: background 0.3s;
+    font-size: 20px;
 }
 
 .back:hover {

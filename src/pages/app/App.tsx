@@ -30,7 +30,7 @@ export const App: FC<IApp> = ({
   return (
     <PageWrapper imgUrl={backgroundStartImg}>
       <UnitIcon imgUrl={warriorImg} alt={'Warrior'}/>
-      <div className={s.buttonGoToArena}>
+      <div className={s.buttonGoToArenaContainer}>
         <UIButton variant={'arena'} onClick={navigateButtonClickHandler}>
                 go to arena
         </UIButton>

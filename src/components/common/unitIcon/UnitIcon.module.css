@@ -2,10 +2,12 @@
     display: var(--flex-display);
     flex-direction: var(--flex-direction-by-height);
     align-items: var(--align-items-center);
+    color: #ecec8d;
 
     img {
         width: 160px;
         height: auto;
         animation: var(--float-animation, float) 2s ease-in-out infinite;
+
     }
 }
