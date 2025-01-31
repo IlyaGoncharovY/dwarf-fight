@@ -1,0 +1,18 @@
+.gameOverBlockContainer {
+    display: flex;
+    flex-direction: column;
+
+    .buttonBack {
+        color: #121111;
+        background: rgb(202 24 24 / 20%);
+        margin-top: 20px;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+
+        &:hover {
+            background: rgb(73 3 3 / 50%);
+        }
+    }
+}
