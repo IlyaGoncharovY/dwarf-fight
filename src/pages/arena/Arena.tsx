@@ -6,7 +6,7 @@ import arenaBGImage from '../../assets/images/arena.webp';
 
 import {useAppDispatch, useAppSelector} from '../../store';
 
-import {MoveAndPunchBlockForArena, PageWrapper, UnitIcon} from '../../components/common';
+import {MoveAndPunchBlockForArena, PageWrapper, UIButton, UnitIcon} from '../../components/common';
 
 import {BattleLog, GameOverBlock} from './comonents';
 import {restartGame} from './reducer/fightSlice.ts';
@@ -28,6 +28,8 @@ export const Arena: FC<IArena> = ({
     turnCount,
     maxTurns,
     gameOver,
+    userHitGoblin,
+    goblinHitUser,
   } = useAppSelector(state => state.arenaReducer);
 
   const {logMessages, setLogMessages} = useLogMessages();
@@ -57,14 +59,14 @@ export const Arena: FC<IArena> = ({
         ) : (
           <>
             <div className={s.imgContainer}>
-              <UnitIcon imgUrl={goblinImage} alt={'goblin'} hp={goblinState.hp}/>
-              <UnitIcon imgUrl={warriorImage} alt={'warrior'} hp={userState.hp}/>
+              <UnitIcon imgUrl={goblinImage} alt={'goblin'} hp={goblinState.hp} isHit={userHitGoblin}/>
+              <UnitIcon imgUrl={warriorImage} alt={'warrior'} hp={userState.hp} isHit={goblinHitUser}/>
             </div>
             <MoveAndPunchBlockForArena title={'Move'} action={'Move'}/>
             <MoveAndPunchBlockForArena title={'Punch'} action={'Punch'}/>
           </>
         )}
-        <button onClick={navigateButtonClickHandler} className={s.buttonBack}>Back</button>
+        <UIButton variant={'back'} onClick={navigateButtonClickHandler}>Back</UIButton>
       </div>
     </PageWrapper>
   );

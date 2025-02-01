@@ -1,15 +1,3 @@
-.arrowButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    transition: transform 0.1s ease-in-out;
-
-    &:active {
-        transform: scale(0.85);
-    }
-}
-
 .arrowImage {
     width: 40px;
     height: 40px;

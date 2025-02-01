@@ -1,15 +1,83 @@
+@font-face {
+  font-family: Triodion;
+  src: url('/src/assets/fonts/Triodion-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Triodion, Inter, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* flex свойста */
+  --flex-display: flex;
+
+  /* flex центр */
+  --justify-content-center: center;
+  --align-items-center: center;
+
+  /* flex по ширине */
+  --justify-content-by-width: space-between;
+
+  /* flex по высоте */
+  --flex-direction-by-height: column;
+
+  /* Анимация для движения юнита */
+  --float-animation: float;
+
+  /* Анимация для движения юнита */
+  --fade-in-animation: fade-in;
+
+  /* цвета */
+
+  /* текст */
+  --white-text-color: white;
+  --primary-color: #e8e817;
+  --secondary-color: #ecec8d;
+
+  /* бекграунд */
+  --background-color-black: rgb(0 0 0 / 70%);
+  --background-color-gray: rgb(255 255 255 / 10%);
+
+  /* бекграунд кнопки */
+  --background-color-dark-red: rgb(202 24 24 / 20%);
+  --background-color-dark-red-hover: rgb(73 3 3 / 50%);
+  --background-color-button-gray: rgb(255 255 255 / 20%);
+  --background-color-button-gray-hover: rgb(255 255 255 / 50%);
 }
 
 body {
   width: 100vw;
   height: 100vh;
   margin: 0;
+  font-family: Triodion, Inter, sans-serif;
+}
+
+/* Анимация для движения юнита (вниз/вверх) */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Анимация для пермещения сообщения в .battleLog */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

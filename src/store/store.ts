@@ -1,10 +1,12 @@
 import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit';
 
 import fightSlice from '../pages/arena/reducer/fightSlice.ts';
+import audioSlice from '../components/common/wrapper/reducer/audioSlice.ts';
 
 export const store = configureStore({
   reducer: {
     arenaReducer: fightSlice,
+    wrapperReducer: audioSlice,
   },
 });
 

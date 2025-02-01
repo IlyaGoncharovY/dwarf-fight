@@ -1,16 +1,5 @@
-.buttonGoToArena {
-     position: absolute;
-    bottom: 20px;
-    left: 50%;
-    color: white;
-    background: rgb(255 255 255 / 20%);
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
-
-    &:hover {
-        background: rgb(255 255 255 / 50%);
-    }
+.buttonGoToArenaContainer {
+    display: var(--flex-display);
+    align-items: var(--align-items-center);
+    padding-top: 20px;
 }

@@ -1,5 +1,7 @@
 import {FC} from 'react';
 
+import {UIButton} from '../../../../components/common';
+
 import s from './GameOverBlock.module.css';
 
 interface IGameOverBlock {
@@ -16,7 +18,7 @@ export const GameOverBlock:FC<IGameOverBlock> = ({
   return (
     <div className={s.gameOverBlockContainer}>
       <h2>{userStateHP <= 0 ? 'Goblin Wins!' : goblinStateHP <= 0 ? 'User Wins!' : 'Game Over!'}</h2>
-      <button onClick={restartButtonHandler} className={s.buttonBack}>Restart</button>
+      <UIButton variant={'back'} onClick={restartButtonHandler}>Restart</UIButton>
     </div>
   );
 };
