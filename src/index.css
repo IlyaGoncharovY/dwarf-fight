@@ -33,6 +33,9 @@
   /* Анимация для движения юнита */
   --fade-in-animation: fade-in;
 
+  /* Анимация для кружочка (получение урона) */
+  --damage-fade-animation: damage-fade;
+
   /* цвета */
 
   /* текст */
@@ -79,5 +82,18 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* анимация для отрисвоки получения урона на юните (кружочек) */
+@keyframes damage-fade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
   }
 }

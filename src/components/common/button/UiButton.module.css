@@ -55,3 +55,8 @@
 .icon:active {
     transform: scale(0.85);
 }
+
+/* 🟡 Желтая рамка, если кнопка выбрана */
+.selected {
+    border: 3px solid var(--primary-color);
+}

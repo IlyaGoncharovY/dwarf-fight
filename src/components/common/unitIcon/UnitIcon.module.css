@@ -23,18 +23,6 @@
         border-radius: 50%;
         transform: translate(-50%, -50%);
         opacity: 0;
-        animation: damage-fade 0.5s ease-in-out;
-    }
-}
-
-@keyframes damage-fade {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1.5);
+        animation: var(--damage-fade-animation, damage-fade) 0.5s ease-in-out;
     }
 }

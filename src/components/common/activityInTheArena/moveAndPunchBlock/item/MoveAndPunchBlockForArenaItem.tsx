@@ -6,6 +6,8 @@ import {userMove, userPunch} from '../../../../../pages/arena/reducer/fightSlice
 
 import {UIButton} from '../../../button/UIButton.tsx';
 
+import {useResetSelectionForArenaItem} from '../hook/useResetSelectionForArenaItem.ts';
+
 import s from './MoveAndPunchBlockForArenaItem.module.css';
 
 interface IMoveAndPunchBlockForArenaItem {
@@ -21,6 +23,8 @@ export const MoveAndPunchBlockForArenaItem:FC<IMoveAndPunchBlockForArenaItem> = 
 
   const {hasMoved, hasAttacked} = useAppSelector(state => state.arenaReducer);
 
+  const {isSelected} = useResetSelectionForArenaItem(action, item);
+
   const moveEventClickHandler = () => {
     if (action === 'Move' && !hasMoved) {
       dispatch(userMove(item.value));
@@ -30,7 +34,7 @@ export const MoveAndPunchBlockForArenaItem:FC<IMoveAndPunchBlockForArenaItem> = 
   };
 
   return (
-    <UIButton variant={'icon'} onClick={moveEventClickHandler}>
+    <UIButton variant={'icon'} onClick={moveEventClickHandler} isSelected={isSelected}>
       <img src={item.url} alt={item.value} className={s.arrowImage}/>
     </UIButton>
   );
