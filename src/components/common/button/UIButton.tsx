@@ -9,6 +9,11 @@ interface UIButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * @default "default"
      */
     variant?: 'default' | 'back' | 'arena' | 'icon';
+    /**
+     * Флажок для выбранной кнопки.
+     * @default "false"
+     */
+    isSelected?: boolean;
 }
 
 /**
@@ -34,17 +39,24 @@ interface UIButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  *   <img src="/path-to-icon.svg" alt="Icon" />
  * </UIButton>
  *
+ * @example
+ * // Кнопка-иконка с изображением. Нажата или нет.
+ * <UIButton variant="icon" isSelected={true}>
+ *   <img src="/path-to-icon.svg" alt="Icon" />
+ * </UIButton>
+ *
  * @param {UIButtonProps} props - Свойства кнопки
  * @returns {JSX.Element} Компонент кнопки
  */
 export const UIButton: FC<UIButtonProps> = ({
   variant = 'default',
+  isSelected = false,
   className,
   children,
   ...props
 }: UIButtonProps): JSX.Element => {
   return (
-    <button className={clsx(s.button, s[variant], className)} {...props}>
+    <button className={clsx(s.button, s[variant], {[s.selected]: isSelected}, className)} {...props}>
       {children}
     </button>
   );

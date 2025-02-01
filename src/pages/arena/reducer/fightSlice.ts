@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export type DirectionType = 'left' | 'right' | 'center';
 
@@ -19,6 +19,8 @@ interface FightState {
   goblinHitUser: boolean;
   hasMoved: boolean;
   hasAttacked: boolean;
+  selectedMove: DirectionType | null;
+  selectedPunch: DirectionType | null;
 }
 
 const getRandomDirection = (): DirectionType => {
@@ -46,6 +48,8 @@ const initialState: FightState = {
   goblinHitUser: false,
   hasMoved: false,
   hasAttacked: false,
+  selectedMove: null,
+  selectedPunch: null,
 };
 
 const fightSlice = createSlice({
@@ -56,6 +60,7 @@ const fightSlice = createSlice({
       if (state.gameOver || state.hasMoved) return;
 
       state.userState.move = action.payload;
+      state.selectedMove = action.payload;
       state.hasMoved = true;
 
       if (state.hasMoved && state.hasAttacked) {
@@ -66,14 +71,13 @@ const fightSlice = createSlice({
       if (state.gameOver || state.hasAttacked) return;
 
       state.userState.setDamage = action.payload;
+      state.selectedPunch = action.payload;
       state.userHitGoblin = false;
       state.goblinHitUser = false;
 
-      // Генерация движения и атаки гоблина
       state.goblinState.move = getRandomDirection();
       state.goblinState.setDamage = getRandomDirection();
 
-      // Проверка попадания
       if (state.userState.setDamage === state.goblinState.move) {
         state.goblinState.hp -= state.userState.damage;
         state.userHitGoblin = true;
@@ -85,7 +89,6 @@ const fightSlice = createSlice({
 
       state.hasAttacked = true;
 
-      // Если и перемещение, и атака уже сделаны → завершаем ход
       if (state.hasMoved && state.hasAttacked) {
         fightSlice.caseReducers.nextTurn(state);
       }
@@ -97,10 +100,13 @@ const fightSlice = createSlice({
       state.hasAttacked = false;
       state.turnCount += 1;
 
-      // Проверка окончания игры
       if (state.turnCount >= state.maxTurns || state.userState.hp <= 0 || state.goblinState.hp <= 0) {
         state.gameOver = true;
       }
+    },
+    resetSelection(state) {
+      state.selectedMove = null;
+      state.selectedPunch = null;
     },
     restartGame(state) {
       state.goblinState.hp = 5;
@@ -111,9 +117,28 @@ const fightSlice = createSlice({
       state.goblinHitUser = false;
       state.hasMoved = false;
       state.hasAttacked = false;
+      state.selectedMove = null;
+      state.selectedPunch = null;
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(resetSelectionWithDelay.fulfilled, (state) => {
+      state.selectedMove = null;
+      state.selectedPunch = null;
+    });
+  },
 });
+
+/**
+ * Санка для сброса выбранных кнопок через 500ms после завершения хода.
+ */
+export const resetSelectionWithDelay = createAsyncThunk(
+  'fight/resetSelectionWithDelay',
+  async (_, { dispatch }) => {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    dispatch(fightSlice.actions.resetSelection());
+  },
+);
 
 export const { userMove, userPunch, restartGame } = fightSlice.actions;
 export default fightSlice.reducer;
