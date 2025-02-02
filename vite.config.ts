@@ -1,10 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-// import cssModulesPlugin from 'vite-plugin-css-modules';
 
 export default defineConfig({
   base: '/dwarf-fight',
   plugins: [react()],
+  css: {
+    modules: {
+      localsConvention: 'camelCaseOnly',
+    },
+  },
   server: {
     watch: {
       usePolling: true,
