@@ -45,12 +45,12 @@ jobs:
         with:
           name: github-pages
           path: 'dist'
-
-      - name: Debug Uploaded Artifacts
-        run: ls -R ${{ runner.temp }}/artifact/
-
-      - name: Clean Cache
-        run: rm -rf ${{ runner.temp }}/*
+#
+#      - name: Debug Uploaded Artifacts
+#        run: ls -R ${{ runner.temp }}/artifact/
+#
+#      - name: Clean Cache
+#        run: rm -rf ${{ runner.temp }}/*
 
       - name: Deploy to GitHub Pages
         id: deployment
