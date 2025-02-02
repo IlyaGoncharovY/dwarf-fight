@@ -1,12 +1,10 @@
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-import cssModulesPlugin from 'vite-plugin-css-modules';
-import {defineConfig as defineVitestConfig} from 'vitest/config';
+// import cssModulesPlugin from 'vite-plugin-css-modules';
 
-export default defineVitestConfig({
+export default defineConfig({
   base: '/dwarf-fight',
-  plugins: [react(), cssModulesPlugin()],
+  plugins: [react()],
   server: {
     watch: {
       usePolling: true,

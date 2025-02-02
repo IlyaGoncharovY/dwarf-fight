@@ -21,13 +21,13 @@
     "react-dom": "^18.3.1",
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.26.2",
-    "vite-plugin-css-modules": "^0.0.1",
     "vitest": "^3.0.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
     "@ilya_goncharov_y/custom-stylelint": "^1.0.9",
     "@ilya_goncharov_y/customeslint": "^1.0.10",
+    "@rollup/pluginutils": "^5.1.4",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react-swc": "^3.5.0",
