@@ -3,12 +3,10 @@ import react from '@vitejs/plugin-react-swc';
 
 export default defineConfig({
   base: '/dwarf-fight',
-  plugins: [react()],
-  css: {
-    modules: {
-      localsConvention: 'camelCaseOnly',
-    },
+  build: {
+    outDir: 'dist',
   },
+  plugins: [react()],
   server: {
     watch: {
       usePolling: true,
