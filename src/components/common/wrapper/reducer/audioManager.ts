@@ -1,4 +1,4 @@
-const audio = new Audio('/audio/background-music.mp3');
+const audio = new Audio(`${import.meta.env.BASE_URL}audio/background-music.mp3`);
 audio.loop = true;
 
 export const AudioManager = {
