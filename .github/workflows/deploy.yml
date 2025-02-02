@@ -43,7 +43,14 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          name: github-pages
           path: 'dist'
+
+      - name: Debug Artifacts
+        run: ls -la ${{ runner.temp }}/_github_home/_github_work/_temp/
+
+      - name: Clean Cache
+        run: rm -rf ${{ runner.temp }}/*
 
       - name: Deploy to GitHub Pages
         id: deployment
