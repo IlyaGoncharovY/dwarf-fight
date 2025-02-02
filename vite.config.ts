@@ -15,12 +15,11 @@ export default defineConfig({
     strictPort: true,
     port: 5173,
   },
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    watch: false,
-    coverage: {
-      reporter: ['text', 'json', 'html'],
-    },
-  },
+  // test: {
+  //   globals: true,
+  //   watch: false,
+  //   coverage: {
+  //     reporter: ['text', 'json', 'html'],
+  //   },
+  // },
 });
