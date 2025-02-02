@@ -28,6 +28,7 @@
     "@eslint/js": "^9.17.0",
     "@ilya_goncharov_y/custom-stylelint": "^1.0.9",
     "@ilya_goncharov_y/customeslint": "^1.0.10",
+    "@rollup/pluginutils": "^5.1.4",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react-swc": "^3.5.0",
