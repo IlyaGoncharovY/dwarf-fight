@@ -1,4 +1,4 @@
-import {Route, Routes} from 'react-router-dom';
+import {Navigate, Route, Routes} from 'react-router-dom';
 
 import {App, Arena} from '../../../../pages';
 
@@ -23,6 +23,7 @@ export const AnimatedRoutes = (): JSX.Element => {
       <Routes location={location}>
         <Route path="/" element={<App onNavigate={handleNavigation} />} />
         <Route path="/arena" element={<Arena onNavigate={handleNavigation} />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );
