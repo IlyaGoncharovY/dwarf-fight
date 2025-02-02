@@ -1,0 +1,41 @@
+name: CI Checks
+
+on:
+  pull_request:
+
+jobs:
+  check-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Install Vite
+        run: npm install -g vite
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run linter
+        run: pnpm run lint
+
+  check-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Install Vite
+        run: npm install -g vite
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run tests
+        run: pnpm test
