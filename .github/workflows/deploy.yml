@@ -34,6 +34,9 @@ jobs:
       - name: Build
         run: tsc && vite build
 
+      - name: Debug Build Output
+        run: ls -la dist
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
@@ -45,9 +48,9 @@ jobs:
         with:
           name: github-pages
           path: 'dist'
-#
-#      - name: Debug Uploaded Artifacts
-#        run: ls -R ${{ runner.temp }}/artifact/
+
+      - name: Debug Uploaded Artifacts
+        run: ls -R ${{ runner.temp }}/artifact/
 #
 #      - name: Clean Cache
 #        run: rm -rf ${{ runner.temp }}/*
@@ -56,5 +59,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
         with:
-          artifact_name: github-pages
           token: ${{ secrets.GITHUB_TOKEN }}
