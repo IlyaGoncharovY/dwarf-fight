@@ -1,62 +1,55 @@
-name: pnpm Example Workflow
+name: Deploy to GitHub Pages
 on:
   push:
     branches: [ 'master' ]
+
 permissions:
-    contents: read
-    pages: write
-    id-token: write
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18]
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v3
         with:
           version: 8
 
-      - name: Set up Node
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install Vite
-        run: npm install -g vite
-
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build
+      - name: Build project
         run: tsc && vite build
 
       - name: Debug Build Output
         run: ls -la dist
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v3
 
-      - name: Debug Build Output
-        run: ls -la dist
-
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: 'dist'
+          path: dist
 
-      - name: Debug Uploaded Artifacts
-        run: ls -R ${{ runner.temp }}/artifact/
-#
-#      - name: Clean Cache
-#        run: rm -rf ${{ runner.temp }}/*
-
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
         with:
+          artifact_name: github-pages
           token: ${{ secrets.GITHUB_TOKEN }}
