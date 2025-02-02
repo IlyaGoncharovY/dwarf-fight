@@ -32,11 +32,9 @@ jobs:
         run: npm install -g vite
 
       - name: Install dependencies
-        working-directory: front
         run: pnpm install
 
       - name: Build
-        working-directory: front
         run: tsc && vite build
 
       - name: Setup Pages
