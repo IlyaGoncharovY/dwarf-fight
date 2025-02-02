@@ -25,11 +25,14 @@ jobs:
         with:
           node-version: 18
 
-#      - name: Install dependencies
-#        run: pnpm install
+      - name: Install Vite
+        run: npm install -g vite
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build project
-        run: tsc && pnpm vite build  # ✅ Добавили pnpm перед vite
+        run: tsc && vite build
 
       - name: Debug Build Output
         run: ls -la dist
