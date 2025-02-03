@@ -1,12 +1,11 @@
-import {FC, useEffect} from 'react';
+import {FC} from 'react';
 
 import warriorImg from '../../assets/images/warrior.svg';
 import backgroundStartImg from '../../assets/images/backgroundStart.webp';
 
-import {useTelegram} from '../../common/hooks';
-import {PageWrapper, UIButton, UnitIcon} from '../../components/common';
-
 import s from './App.module.css';
+
+import {PageWrapper, UIButton, UnitIcon} from '@/components/common';
 
 interface IApp {
     onNavigate: (path: string) => void
@@ -16,12 +15,6 @@ export const App: FC<IApp> = ({
   onNavigate,
 },
 ) => {
-
-  const {tg} = useTelegram();
-
-  useEffect(() => {
-    tg.ready();
-  }, [tg]);
 
   const navigateButtonClickHandler = () => {
     onNavigate('/arena');

@@ -1,6 +1,6 @@
 import {FC} from 'react';
 
-import {UIButton} from '../../../../components/common';
+import {UIButton} from '@/components/common';
 
 import s from './GameOverBlock.module.css';
 

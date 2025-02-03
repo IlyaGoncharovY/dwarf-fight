@@ -1,10 +1,10 @@
 import {FC} from 'react';
 
-import {buttonsForActivityInArena} from '../../../../common/dataSet';
-
 import {MoveAndPunchBlockForArenaItem} from './item/MoveAndPunchBlockForArenaItem.tsx';
 
 import s from './MoveAndPunchBlockForArena.module.css';
+
+import {buttonsForActivityInArena} from '@/common/dataSet';
 
 interface IMoveAndPunchBlockForArena {
   title: string

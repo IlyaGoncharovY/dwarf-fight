@@ -8,7 +8,7 @@ interface UIButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * Вариант кнопки, определяющий её стили.
      * @default "default"
      */
-    variant?: 'default' | 'back' | 'arena' | 'icon';
+    variant?: 'default' | 'back' | 'arena' | 'icon' | 'header';
     /**
      * Флажок для выбранной кнопки.
      * @default "false"

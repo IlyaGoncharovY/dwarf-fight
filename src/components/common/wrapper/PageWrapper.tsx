@@ -1,10 +1,10 @@
 import {FC, ReactNode, useEffect} from 'react';
 
-import {useAppDispatch, useAppSelector} from '../../../store';
+import {HeaderWrapper} from './components';
 
 import s from './PageWrapper.module.css';
-import {AudioManager} from './reducer/audioManager.ts';
-import {toggleAudio} from './reducer/audioSlice.ts';
+
+import {useTelegram} from '@/common/hooks';
 
 interface IPageWrapper {
     imgUrl: string;
@@ -32,30 +32,18 @@ export const PageWrapper: FC<IPageWrapper> = ({
   children,
 }: IPageWrapper): JSX.Element => {
 
-  const isPlaying = useAppSelector((state) => state.wrapperReducer.isPlaying);
-
-  const dispatch = useAppDispatch();
+  const {tg} = useTelegram();
 
   useEffect(() => {
-    if (isPlaying) {
-      AudioManager.play();
-    } else {
-      AudioManager.pause();
-    }
-  }, [isPlaying]);
-
-  const toggleMusicHandler = () => {
-    dispatch(toggleAudio());
-  };
+    tg.ready();
+  }, [tg]);
 
   return (
     <div
       className={s.pageWrapperContainer}
       style={{backgroundImage: `url(${imgUrl})`}}
     >
-      <span className={s.audioButton} onClick={toggleMusicHandler}>
-        {isPlaying ? '🔇 off' : '🔊 on'}
-      </span>
+      <HeaderWrapper/>
       {children}
     </div>
   );
