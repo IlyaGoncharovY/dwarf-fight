@@ -1,0 +1,18 @@
+.headerWrapperContainer {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    display: var(--flex-display);
+    justify-content: var(--justify-content-by-width);
+    align-items: var(--align-items-center);
+    width: 100%;
+    padding: 20px;
+
+    .closeAppButton {
+        margin-left: 10px;
+    }
+
+    .audioButton {
+        margin-right: 10px;
+    }
+}

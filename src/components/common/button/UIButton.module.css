@@ -60,3 +60,18 @@
 .selected {
     border: 3px solid var(--primary-color);
 }
+
+/* ⬆️ Кнопка для хидера */
+.header {
+    color: var(--white-text-color);
+    background: rgb(0 0 0 / 50%);
+    padding: 10px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+        background: rgb(0 0 0 / 80%);
+    }
+}
