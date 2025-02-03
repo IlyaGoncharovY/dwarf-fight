@@ -1,14 +1,14 @@
 import {FC} from 'react';
 
-import {useAppDispatch, useAppSelector} from '../../../../../store';
-import {buttonsForActivityInArenaType} from '../../../../../common/dataSet';
-import {userMove, userPunch} from '../../../../../pages/arena/reducer/fightSlice.ts';
-
-import {UIButton} from '../../../button/UIButton.tsx';
-
 import {useResetSelectionForArenaItem} from '../hook/useResetSelectionForArenaItem.ts';
 
 import s from './MoveAndPunchBlockForArenaItem.module.css';
+
+import {useAppDispatch, useAppSelector} from '@/store';
+import {buttonsForActivityInArenaType} from '@/common/dataSet';
+import {userMove, userPunch} from '@/pages/arena/reducer/fightSlice.ts';
+
+import {UIButton} from '@/components/common';
 
 interface IMoveAndPunchBlockForArenaItem {
     item: buttonsForActivityInArenaType

@@ -1,9 +1,9 @@
 import {Navigate, Route, Routes} from 'react-router-dom';
 
-import {App, Arena} from '../../../../pages';
-
 import s from './AnimatedRoutes.module.css';
 import {useAnimatedRoutes} from './hook/useAnimatedRoutes.ts';
+
+import {App, Arena} from '@/pages';
 
 /**
  * AnimatedRoutes - Компонент маршрутизации с анимацией переходов между страницами.
