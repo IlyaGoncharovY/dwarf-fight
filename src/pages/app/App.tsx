@@ -16,16 +16,23 @@ export const App: FC<IApp> = ({
 },
 ) => {
 
-  const navigateButtonClickHandler = () => {
-    onNavigate('/arena');
+  const navigateButtonClickHandlerPVE = () => {
+    onNavigate('/arenaPVE');
+  };
+
+  const navigateButtonClickHandlerPVP = () => {
+    onNavigate('/arenaPVP');
   };
 
   return (
     <PageWrapper imgUrl={backgroundStartImg}>
       <UnitIcon imgUrl={warriorImg} alt={'Warrior'}/>
       <div className={s.buttonGoToArenaContainer}>
-        <UIButton variant={'arena'} onClick={navigateButtonClickHandler}>
-                go to arena
+        <UIButton variant={'arena'} onClick={navigateButtonClickHandlerPVE}>
+                go to arena PVE
+        </UIButton>
+        <UIButton variant={'arena'} onClick={navigateButtonClickHandlerPVP}>
+              go to arena PVP
         </UIButton>
       </div>
     </PageWrapper>
