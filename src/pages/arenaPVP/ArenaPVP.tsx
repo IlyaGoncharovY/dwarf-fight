@@ -1,8 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 
+import arenaPVPBGImage from '../../assets/images/pvpBG.webp';
+
 import { FightWebSocket } from '@/pages/arenaPVP/reducer/fightWebSocket';
 import { ArenaPvpItem } from '@/pages/arenaPVP/item/ArenaPVPItem.tsx';
 import {IGameData, Nullable} from '@/common/types';
+import {PageWrapper, UIButton} from '@/components/common';
 
 interface IArenaPVP {
   onNavigate: (path: string) => void;
@@ -22,15 +25,15 @@ export const ArenaPVP: FC<IArenaPVP> = ({ onNavigate }) => {
     return () => ws.close();
   }, [playerId]);
 
-  return (
-    <div>
-      <h2>Arena PVP</h2>
+  const navigateButtonClickHandler = () => onNavigate('/');
 
+  return (
+    <PageWrapper imgUrl={arenaPVPBGImage}>
       {!gameData ? (
         <button disabled>Подключение...</button>
       ) : (
         <>
-          <h3>Ход: {gameData.turnCount} / 15</h3>
+          <h3>Turn: {gameData.turnCount} / 15</h3>
 
           {gameData.gameOver ? (
             <h2 style={{ color: 'red' }}>
@@ -46,7 +49,7 @@ export const ArenaPVP: FC<IArenaPVP> = ({ onNavigate }) => {
         </>
       )}
 
-      <button onClick={() => onNavigate('/')}>back</button>
-    </div>
+      <UIButton variant={'back'} onClick={navigateButtonClickHandler}>Back</UIButton>
+    </PageWrapper>
   );
 };

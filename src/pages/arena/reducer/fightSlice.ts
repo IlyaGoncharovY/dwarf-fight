@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-export type DirectionType = 'left' | 'right' | 'center';
+import {DirectionType, Nullable} from '@/common/types';
 
 interface FighterState {
   hp: number;
@@ -19,8 +19,8 @@ interface FightState {
   goblinHitUser: boolean;
   hasMoved: boolean;
   hasAttacked: boolean;
-  selectedMove: DirectionType | null;
-  selectedPunch: DirectionType | null;
+  selectedMove: Nullable<DirectionType>;
+  selectedPunch: Nullable<DirectionType>;
 }
 
 const getRandomDirection = (): DirectionType => {
