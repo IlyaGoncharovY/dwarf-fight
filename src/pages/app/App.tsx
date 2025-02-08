@@ -22,6 +22,7 @@ export const App: FC<IApp> = ({
 
   const navigateButtonClickHandlerPVP = () => {
     onNavigate('/arenaPVP');
+
   };
 
   return (

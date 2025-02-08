@@ -3,7 +3,6 @@ import {Navigate, Route, Routes} from 'react-router-dom';
 import s from './AnimatedRoutes.module.css';
 import {useAnimatedRoutes} from './hook/useAnimatedRoutes.ts';
 
-import {App, Arena} from '@/pages';
 import {ArenaPVP} from '@/pages/arenaPVP/ArenaPVP.tsx';
 
 /**
