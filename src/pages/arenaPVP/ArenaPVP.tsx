@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 
 import { FightWebSocket } from '@/pages/arenaPVP/reducer/fightWebSocket';
 import { ArenaPvpItem } from '@/pages/arenaPVP/item/ArenaPVPItem.tsx';
+import {IGameData, Nullable} from '@/common/types';
 
 interface IArenaPVP {
   onNavigate: (path: string) => void;
@@ -9,8 +10,8 @@ interface IArenaPVP {
 
 export const ArenaPVP: FC<IArenaPVP> = ({ onNavigate }) => {
   const [playerId] = useState(`player_${Math.random().toString(36).substr(2, 9)}`);
-  const [gameData, setGameData] = useState<any>(null);
-  const [wsClient, setWsClient] = useState<FightWebSocket | null>(null);
+  const [gameData, setGameData] = useState<Nullable<IGameData>>(null);
+  const [wsClient, setWsClient] = useState<Nullable<FightWebSocket>>(null);
 
   useEffect(() => {
     const ws = new FightWebSocket(playerId, (data) => {

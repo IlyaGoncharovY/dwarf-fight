@@ -1,15 +1,11 @@
-import { FC } from 'react';
+import {FC} from 'react';
 
-import { FightWebSocket } from '@/pages/arenaPVP/reducer/fightWebSocket';
+import {FightWebSocket} from '@/pages/arenaPVP/reducer/fightWebSocket';
+import {FighterState} from '@/common/types';
 
 interface IArenaPvpItem {
-    player: {
-        id: string;
-        hp: number,
-        move: 'left' | 'center' | 'right' | null,
-        setDamage: 'left' | 'center' | 'right' | null
-    };
-    opponent: { id: string; hp: number };
+    player: FighterState;
+    opponent: FighterState;
     wsClient: FightWebSocket;
 }
 
