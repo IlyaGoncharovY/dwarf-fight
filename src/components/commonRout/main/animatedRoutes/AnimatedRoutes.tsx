@@ -3,7 +3,7 @@ import {Navigate, Route, Routes} from 'react-router-dom';
 import s from './AnimatedRoutes.module.css';
 import {useAnimatedRoutes} from './hook/useAnimatedRoutes.ts';
 
-import {ArenaPVP} from '@/pages/arenaPVP/ArenaPVP.tsx';
+import {App, Arena, ArenaPVP} from '@/pages';
 
 /**
  * AnimatedRoutes - Компонент маршрутизации с анимацией переходов между страницами.
