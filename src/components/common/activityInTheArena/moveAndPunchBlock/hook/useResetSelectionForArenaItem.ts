@@ -1,8 +1,8 @@
 import {useEffect, useRef} from 'react';
 
-import {resetSelectionWithDelay} from '../../../../../pages/arena/reducer/fightSlice.ts';
-import {useAppDispatch, useAppSelector} from '../../../../../store';
-import {buttonsForActivityInArenaType} from '../../../../../common/dataSet';
+import {resetSelectionWithDelay} from '@/pages/arena/reducer/fightSlice.ts';
+import {useAppDispatch, useAppSelector} from '@/store';
+import {buttonsForActivityInArenaType} from '@/common/dataSet';
 
 /**
  * useResetSelectionForArenaItem - Кастомный хук для управления выделением кнопок в `MoveAndPunchBlockForArenaItem`.

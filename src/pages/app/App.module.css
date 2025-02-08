@@ -1,5 +1,6 @@
 .buttonGoToArenaContainer {
     display: var(--flex-display);
     align-items: var(--align-items-center);
+    gap: 10px;
     padding-top: 20px;
 }
