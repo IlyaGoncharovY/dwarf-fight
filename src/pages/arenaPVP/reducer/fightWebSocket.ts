@@ -1,6 +1,6 @@
 import {DirectionType, IGameData, Nullable} from '@/common/types';
 
-const BACK_URL = import.meta.env.VITE_REACT_APP_BACK_URL;
+// const BACK_URL = import.meta.env.VITE_REACT_APP_BACK_URL;
 
 /**
  * Класс для работы с WebSocket-соединением в игре.
@@ -43,7 +43,7 @@ export class FightWebSocket {
   constructor(playerId: string, onUpdate: (data: IGameData) => void) {
     this.playerId = playerId;
     this.onUpdate = onUpdate;
-    this.ws = new WebSocket(BACK_URL);
+    this.ws = new WebSocket('https://jobtracker-l44k.onrender.com');
     // this.ws = new WebSocket('ws://localhost:8000');
 
     this.ws.onopen = () => {
