@@ -1,0 +1,18 @@
+.loaderContainer {
+    display: var( --flex-display);
+    justify-content: var( --justify-content-center);
+    align-items: var(--align-items-center);
+    flex-direction: var(--flex-direction-by-height);
+    height: 100%;
+    padding: 20px;
+
+    .loader {
+        border: 8px solid var(--white-text-color);
+        border-top: 8px solid var(--primary-color);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: var(--spin-loader-animation, spin) 2s linear infinite;
+        margin-bottom: 10px;
+    }
+}

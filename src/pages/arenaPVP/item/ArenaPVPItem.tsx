@@ -1,7 +1,13 @@
 import {FC} from 'react';
 
+import s from './ArenaPVPItem.module.css';
+
 import {FightWebSocket} from '@/pages/arenaPVP/reducer/fightWebSocket';
-import {FighterState} from '@/common/types';
+import {DirectionType, FighterState} from '@/common/types';
+import {MoveAndPunchBlockForArena, UnitIcon} from '@/components/common';
+import playerPVPImg from '@/assets/images/playerPVP.png';
+import opponentPVPImg from '@/assets/images/opponentPVPIMG.png';
+import {isHitCheck} from '@/pages/arenaPVP/utils/isHitCheck.ts';
 
 interface IArenaPvpItem {
     player: FighterState;
@@ -9,27 +15,55 @@ interface IArenaPvpItem {
     wsClient: FightWebSocket;
 }
 
-export const ArenaPvpItem: FC<IArenaPvpItem> = ({ player, opponent, wsClient }) => {
+export const ArenaPvpItem: FC<IArenaPvpItem> = ({
+  player,
+  opponent,
+  wsClient,
+}) => {
+
+  const handleAction = (action: 'Move' | 'Punch', value: DirectionType) => {
+    if (wsClient) {
+      if (action === 'Move') {
+        wsClient.sendMove(value);
+      } else if (action === 'Punch') {
+        wsClient.sendPunch(value);
+      }
+    }
+  };
+
+  const isHitPlayer: boolean = isHitCheck(player.move, opponent.setDamage);
+  const isHitOpponent: boolean = isHitCheck(opponent.move, player.setDamage);
+
   return (
-    <div style={{ border: '1px solid black', padding: '10px', margin: '10px' }}>
-      <h3>Вы: {player.id}</h3>
-      <p>Ваш HP: {player.hp}</p>
-      <h3>Противник: {opponent.id}</h3>
-      <p>HP противника: {opponent.hp}</p>
-
-      <div>
-        <p>Движение</p>
-        <button onClick={() => wsClient.sendMove('left')} disabled={player.move !== null}>Left</button>
-        <button onClick={() => wsClient.sendMove('center')} disabled={player.move !== null}>Center</button>
-        <button onClick={() => wsClient.sendMove('right')} disabled={player.move !== null}>Right</button>
+    <div className={s.arenaPVPItemContainer}>
+      <div className={s.playersContainer}>
+        <UnitIcon
+          imgUrl={playerPVPImg}
+          alt={'player'}
+          hp={player.hp}
+          userName={player.id}
+          isHit={isHitPlayer}
+        />
+        <UnitIcon
+          imgUrl={opponentPVPImg}
+          alt={'opponent'}
+          hp={opponent.hp}
+          userName={opponent.id}
+          isHit={isHitOpponent}
+        />
       </div>
-
-      <div>
-        <p>Атака</p>
-        <button onClick={() => wsClient.sendPunch('left')} disabled={player.setDamage !== null}>Left</button>
-        <button onClick={() => wsClient.sendPunch('center')} disabled={player.setDamage !== null}>Center</button>
-        <button onClick={() => wsClient.sendPunch('right')} disabled={player.setDamage !== null}>Right</button>
-      </div>
+      <MoveAndPunchBlockForArena
+        title="Move"
+        action="Move"
+        onAction={wsClient ? handleAction : undefined}
+        disabled={player.move !== null}
+      />
+      <MoveAndPunchBlockForArena
+        title="Punch"
+        action="Punch"
+        onAction={wsClient ? handleAction : undefined}
+        disabled={player.setDamage !== null}
+      />
     </div>
   );
 };

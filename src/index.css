@@ -36,12 +36,16 @@
   /* Анимация для кружочка (получение урона) */
   --damage-fade-animation: damage-fade;
 
+  /* Анимация для лодера (кружочек крутится) */
+  --spin-loader-animation: spin;
+
   /* цвета */
 
   /* текст */
   --white-text-color: white;
   --primary-color: #e8e817;
   --secondary-color: #ecec8d;
+  --warning-color: #f13131;
 
   /* бекграунд */
   --background-color-black: rgb(0 0 0 / 70%);
@@ -95,5 +99,16 @@ body {
   100% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+/* анимация для лоадера, реализация крутилки */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
