@@ -1,8 +1,13 @@
 import {FC} from 'react';
 
+import s from './ArenaPVPItem.module.css';
+
 import {FightWebSocket} from '@/pages/arenaPVP/reducer/fightWebSocket';
 import {DirectionType, FighterState} from '@/common/types';
-import {MoveAndPunchBlockForArena} from '@/components/common';
+import {MoveAndPunchBlockForArena, UnitIcon} from '@/components/common';
+import playerPVPImg from '@/assets/images/playerPVP.png';
+import opponentPVPImg from '@/assets/images/opponentPVPIMG.png';
+import {isHitCheck} from '@/pages/arenaPVP/utils/isHitCheck.ts';
 
 interface IArenaPvpItem {
     player: FighterState;
@@ -26,12 +31,27 @@ export const ArenaPvpItem: FC<IArenaPvpItem> = ({
     }
   };
 
+  const isHitPlayer: boolean = isHitCheck(player.move, opponent.setDamage);
+  const isHitOpponent: boolean = isHitCheck(opponent.move, player.setDamage);
+
   return (
-    <div style={{ border: '1px solid black', padding: '10px', margin: '10px' }}>
-      <h3>Вы: {player.id}</h3>
-      <p>Ваш HP: {player.hp}</p>
-      <h3>Противник: {opponent.id}</h3>
-      <p>HP противника: {opponent.hp}</p>
+    <div className={s.arenaPVPItemContainer}>
+      <div className={s.playersContainer}>
+        <UnitIcon
+          imgUrl={playerPVPImg}
+          alt={'player'}
+          hp={player.hp}
+          userName={player.id}
+          isHit={isHitPlayer}
+        />
+        <UnitIcon
+          imgUrl={opponentPVPImg}
+          alt={'opponent'}
+          hp={opponent.hp}
+          userName={opponent.id}
+          isHit={isHitOpponent}
+        />
+      </div>
       <MoveAndPunchBlockForArena
         title="Move"
         action="Move"
