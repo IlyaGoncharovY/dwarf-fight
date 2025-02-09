@@ -1,0 +1,7 @@
+.countTurnContainer {
+    color: var(--primary-color);
+}
+
+.resultContainer {
+    color: var(--warning-color);
+}
