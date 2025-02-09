@@ -5,6 +5,12 @@
     align-items: var(--align-items-center);
     color: var(--secondary-color);
 
+    .nameUserContainer {
+        text-align: center;
+        width: 90%;
+        height: 40px;
+    }
+
     img {
         width: 160px;
         height: auto;
