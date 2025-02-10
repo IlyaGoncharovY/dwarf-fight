@@ -2,9 +2,10 @@ import {FC} from 'react';
 
 import s from './ActiveGameScreen.module.css';
 
+import {ArenaPvpItem} from './item/ArenaPVPItem.tsx';
+
 import {IGameData} from '@/common/types';
 import {FightWebSocket} from '@/pages/arenaPVP/reducer/fightWebSocket.ts';
-import {ArenaPvpItem} from '@/pages/arenaPVP/item/ArenaPVPItem.tsx';
 
 interface IActiveGameScreen {
     turnCount: number;
