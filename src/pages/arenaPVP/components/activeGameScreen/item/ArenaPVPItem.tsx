@@ -2,7 +2,7 @@ import {FC} from 'react';
 
 import s from './ArenaPVPItem.module.css';
 
-import {FightWebSocket} from '@/pages/arenaPVP/reducer/fightWebSocket';
+import {FightWebSocket} from '@/pages/arenaPVP/reducer/fightWebSocket.ts';
 import {DirectionType, FighterState} from '@/common/types';
 import {MoveAndPunchBlockForArena, UnitIcon} from '@/components/common';
 import playerPVPImg from '@/assets/images/playerPVP.png';
