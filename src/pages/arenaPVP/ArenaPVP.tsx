@@ -5,7 +5,7 @@ import arenaPVPBGImage from '../../assets/images/PVP_BG.png';
 import {Loader, PageWrapper, UIButton} from '@/components/common';
 import {GameOverScreen} from '@/pages/arenaPVP/components/gameOver/GameOverScreen.tsx';
 import {ActiveGameScreen} from '@/pages/arenaPVP/components/activeGameScreen/ActiveGameScreen.tsx';
-import {useArenaPVP} from '@/pages/arenaPVP/hook/useArenaPVP.ts';
+import {useArenaPVP} from '@/pages/arenaPVP/hook';
 
 interface IArenaPVP {
   onNavigate: (path: string) => void;

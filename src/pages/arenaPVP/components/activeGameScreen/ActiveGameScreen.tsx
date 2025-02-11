@@ -23,7 +23,12 @@ export const ActiveGameScreen:FC<IActiveGameScreen> = ({
   return (
     <>
       <h3 className={s.turnCountContainer}>Turn: {turnCount} / 15</h3>
-      <ArenaPvpItem player={player} opponent={opponent} wsClient={wsClient} />
+      <ArenaPvpItem
+        player={player}
+        opponent={opponent}
+        wsClient={wsClient}
+        turnCount={turnCount}
+      />
     </>
   );
 };

@@ -7,19 +7,27 @@ import {DirectionType, FighterState} from '@/common/types';
 import {MoveAndPunchBlockForArena, UnitIcon} from '@/components/common';
 import playerPVPImg from '@/assets/images/playerPVP.png';
 import opponentPVPImg from '@/assets/images/opponentPVPIMG.png';
-import {isHitCheck} from '@/pages/arenaPVP/utils/isHitCheck.ts';
+import {useCheckDamageUser} from '@/pages/arenaPVP/hook';
 
 interface IArenaPvpItem {
     player: FighterState;
     opponent: FighterState;
     wsClient: FightWebSocket;
+    turnCount: number;
 }
 
 export const ArenaPvpItem: FC<IArenaPvpItem> = ({
   player,
   opponent,
   wsClient,
+  turnCount,
 }) => {
+
+  const {localPlayerHit, localOpponentHit} = useCheckDamageUser({
+    turnCount: turnCount,
+    playerIsHit: player.isHit,
+    opponentIsHit: opponent.isHit,
+  });
 
   const handleAction = (action: 'Move' | 'Punch', value: DirectionType) => {
     if (wsClient) {
@@ -31,9 +39,6 @@ export const ArenaPvpItem: FC<IArenaPvpItem> = ({
     }
   };
 
-  const isHitPlayer: boolean = isHitCheck(player.move, opponent.setDamage);
-  const isHitOpponent: boolean = isHitCheck(opponent.move, player.setDamage);
-
   return (
     <div className={s.arenaPVPItemContainer}>
       <div className={s.playersContainer}>
@@ -42,14 +47,14 @@ export const ArenaPvpItem: FC<IArenaPvpItem> = ({
           alt={'player'}
           hp={player.hp}
           userName={player.id}
-          isHit={isHitPlayer}
+          isHit={localPlayerHit}
         />
         <UnitIcon
           imgUrl={opponentPVPImg}
           alt={'opponent'}
           hp={opponent.hp}
           userName={opponent.id}
-          isHit={isHitOpponent}
+          isHit={localOpponentHit}
         />
       </div>
       <MoveAndPunchBlockForArena

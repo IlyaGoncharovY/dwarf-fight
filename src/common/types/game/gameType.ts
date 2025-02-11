@@ -15,6 +15,7 @@ export type DirectionType = 'left' | 'right' | 'center';
  * @param {number} props.damage - Урон, который может нанести игрок.
  * @param {Nullable<DirectionType>} props.move - Направление движения игрока.
  * @param {Nullable<DirectionType>} props.setDamage - Направление атаки игрока.
+ * @param {boolean} props.isHit - попал ли противник или нет.
  */
 export interface FighterState {
     id: string;
@@ -22,6 +23,7 @@ export interface FighterState {
     damage: number;
     move: Nullable<DirectionType>;
     setDamage: Nullable<DirectionType>;
+    isHit: boolean;
 }
 
 /**
