@@ -9,6 +9,8 @@ interface returnParamsUseArenaPVP {
   wsClient: Nullable<FightWebSocket>
 }
 
+// type returnParamsUseArenaPVP = ReturnType<typeof useArenaPVP>
+
 /**
  * Кастомный хук для обработки WS клиента.
  * Для PVP фарены.
