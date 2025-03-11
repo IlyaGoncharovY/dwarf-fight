@@ -83,6 +83,15 @@ export class FightWebSocket {
   }
 
   /**
+   * Отправляет сообщение в чат.
+   *
+   * @param {string} message - Направление атаки.
+   */
+  sendChatMessage(message: string) {
+    this.ws.send(JSON.stringify({ type: 'chat', playerId: this.playerId, message, gameId: this.gameId }));
+  }
+
+  /**
    * Закрывает WebSocket-соединение.
    */
   close() {
