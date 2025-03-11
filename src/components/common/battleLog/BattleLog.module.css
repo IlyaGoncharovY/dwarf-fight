@@ -1,17 +1,17 @@
 .battleLogContainer {
     display: var(--flex-display);
-    flex-direction: var(--flex-direction-by-height);
     gap: 10px;
-    min-width: 300px;
-    max-width: 300px;
+    width: 400px;
+    flex-direction: var(--flex-direction-by-height);
     padding: 5px 0;
 
     @media screen and (width <= 460px) {
+        width: 320px;
         padding: 5px;
     }
 
     .battleLog {
-        width: 350px;
+        width: 100%;
         max-height: 150px;
         min-height: 100px;
         color: var(--white-text-color);
@@ -23,7 +23,6 @@
         box-shadow: 0 0 5px rgb(0 0 0 / 50%);
 
         @media screen and (width <= 460px) {
-            width: 100%;
             max-height: 110px;
             min-height: 90px;
         }
