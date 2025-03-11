@@ -36,12 +36,11 @@
             text-align: center;
             font-weight: bold;
             animation: var(--fade-in-animation, fade-in) 0.3s ease-in-out;
-            word-wrap: break-word; /* Перенос строк */
-            overflow-wrap: break-word; /* Альтернативный вариант переноса */
-            white-space: normal; /* Разрешает перенос текста */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
 
             @media screen and (width <= 460px) {
-                /* word-break: break-all; */
                 padding: 2px;
             }
         }
