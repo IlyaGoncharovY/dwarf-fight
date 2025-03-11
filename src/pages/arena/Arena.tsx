@@ -4,13 +4,13 @@ import warriorImage from '../../assets/images/warrior.svg';
 import goblinImage from '../../assets/images/goblinFat.svg';
 import arenaBGImage from '../../assets/images/arena.webp';
 
-import {BattleLog, GameOverBlock} from './comonents';
+import {GameOverBlock} from './comonents';
 import {restartGame} from './reducer/fightSlice.ts';
 
 import s from './Arena.module.css';
 import {useLogMessages} from './hook/useLogMessages.ts';
 
-import {MoveAndPunchBlockForArena, PageWrapper, UIButton, UnitIcon} from '@/components/common';
+import {BattleLog, MoveAndPunchBlockForArena, PageWrapper, UIButton, UnitIcon} from '@/components/common';
 import {useAppDispatch, useAppSelector} from '@/store';
 
 interface IArena {

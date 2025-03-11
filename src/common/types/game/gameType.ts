@@ -35,6 +35,7 @@ export interface FighterState {
  * @param {FighterState} props.player - Состояние игрока.
  * @param {string} props.result - Итоговый результат игры.
  * @param {number} props.turnCount - Текущий номер хода.
+ * @param {string[]} props.log - Сообщения для чата.
  */
 export interface IGameData {
     gameId: string;
@@ -43,4 +44,5 @@ export interface IGameData {
     player: FighterState;
     result: string;
     turnCount: number;
+    log: [];
 }

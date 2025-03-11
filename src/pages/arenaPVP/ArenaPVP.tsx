@@ -28,6 +28,7 @@ export const ArenaPVP: FC<IArenaPVP> = ({ onNavigate }) => {
         turnCount={gameData.turnCount}
         player={gameData.player}
         opponent={gameData.opponent}
+        logMessages={gameData.log}
         wsClient={wsClient}
       />
     );

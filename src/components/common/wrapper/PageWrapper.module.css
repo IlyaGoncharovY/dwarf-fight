@@ -1,13 +1,17 @@
 .pageWrapperContainer {
     display: var(--flex-display);
+    flex-direction: var(--flex-direction-by-height);
     justify-content: var(--justify-content-center);
     align-items: var(--align-items-center);
     width: 100vw;
     height: 100vh;
     background-position: center;
     background-size: cover;
-    flex-direction: var(--flex-direction-by-height);
     background-repeat: no-repeat;
     overflow: hidden;
     font-size: 18px;
+
+     @media screen and (width <= 460px) {
+        font-size: 15px;
+     }
 }

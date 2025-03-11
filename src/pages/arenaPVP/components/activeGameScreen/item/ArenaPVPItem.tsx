@@ -4,7 +4,7 @@ import s from './ArenaPVPItem.module.css';
 
 import {FightWebSocket} from '@/pages/arenaPVP/reducer/fightWebSocket.ts';
 import {DirectionType, FighterState} from '@/common/types';
-import {MoveAndPunchBlockForArena, UnitIcon} from '@/components/common';
+import {BattleLog, MoveAndPunchBlockForArena, UnitIcon} from '@/components/common';
 import playerPVPImg from '@/assets/images/playerPVP.png';
 import opponentPVPImg from '@/assets/images/opponentPVPIMG.png';
 import {useCheckDamageUser} from '@/pages/arenaPVP/hook';
@@ -14,6 +14,7 @@ interface IArenaPvpItem {
     opponent: FighterState;
     wsClient: FightWebSocket;
     turnCount: number;
+    logMessages: string[];
 }
 
 export const ArenaPvpItem: FC<IArenaPvpItem> = ({
@@ -21,6 +22,7 @@ export const ArenaPvpItem: FC<IArenaPvpItem> = ({
   opponent,
   wsClient,
   turnCount,
+  logMessages,
 }) => {
 
   const {localPlayerHit, localOpponentHit} = useCheckDamageUser({
@@ -69,6 +71,7 @@ export const ArenaPvpItem: FC<IArenaPvpItem> = ({
         onAction={wsClient ? handleAction : undefined}
         disabled={player.setDamage !== null}
       />
+      <BattleLog logMessages={logMessages} wsClient={wsClient}/>
     </div>
   );
 };

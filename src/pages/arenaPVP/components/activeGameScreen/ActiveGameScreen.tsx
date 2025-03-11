@@ -12,6 +12,7 @@ interface IActiveGameScreen {
     player: IGameData['player'];
     opponent: IGameData['opponent'];
     wsClient: FightWebSocket;
+    logMessages: string[];
 }
 
 export const ActiveGameScreen:FC<IActiveGameScreen> = ({
@@ -19,6 +20,7 @@ export const ActiveGameScreen:FC<IActiveGameScreen> = ({
   player,
   opponent,
   wsClient,
+  logMessages,
 }) => {
   return (
     <>
@@ -28,6 +30,7 @@ export const ActiveGameScreen:FC<IActiveGameScreen> = ({
         opponent={opponent}
         wsClient={wsClient}
         turnCount={turnCount}
+        logMessages={logMessages}
       />
     </>
   );

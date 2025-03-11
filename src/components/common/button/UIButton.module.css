@@ -20,7 +20,7 @@
 .back {
     color: var(--primary-color);
     background: var(--background-color-dark-red);
-    margin-top: 20px;
+    margin-top: 5px;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
